@@ -4,7 +4,8 @@ import { useCallback, useEffect, useState } from "react";
 import { call, type AuditRow, type Me, type TeamUser } from "./api";
 
 const ACTION: Record<string, string> = {
-  login: "Signed in", logout: "Signed out", login_failed: "Failed sign-in", owner_created: "Owner account created",
+  login: "Signed in", logout: "Signed out", master_key_failed: "Wrong master key", master_key_recovered: "Used the master key to recover",
+  master_key_owner_created: "Used the master key to create owner", login_failed: "Failed sign-in", owner_created: "Owner account created",
   invite_accepted: "Accepted invite", authenticator_enabled: "Set up authenticator", password_changed: "Changed password",
   password_change_failed: "Wrong current password", recovery_codes_regenerated: "New recovery codes",
   user_invited: "Invited", user_reset: "Reset access for", user_disabled: "Disabled", user_enabled: "Re-enabled",

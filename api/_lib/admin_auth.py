@@ -174,7 +174,7 @@ def revoke_user_sessions(user_id: int, except_session: int | None = None) -> Non
 
 
 def public_user(u: dict) -> dict:
-    return {"id": u["id"], "email": u["email"], "name": u["name"], "role": u["role"],
+    return {"id": u["id"], "email": u["email"], "name": u["name"], "role": u["role"], "mfa_method": u.get("mfa_method", "app"),
             "password_expired": u.get("password_expired", False), "password_days_left": u.get("password_days_left")}
 
 

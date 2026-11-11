@@ -185,4 +185,13 @@ CREATE TABLE IF NOT EXISTS admin_audit (
 );
 CREATE INDEX IF NOT EXISTS admin_audit_created_idx ON admin_audit (created_at DESC);
 
+-- v1.5: email one-time codes as an alternative to the authenticator app
+ALTER TABLE admin_users ADD COLUMN IF NOT EXISTS mfa_method text NOT NULL DEFAULT 'app';  -- totp_enabled = "2-step is set up"
+DO $$ BEGIN
+  ALTER TABLE admin_users ADD CONSTRAINT admin_users_mfa_chk CHECK (mfa_method IN ('app', 'email'));
+EXCEPTION WHEN duplicate_object THEN NULL; END $$;
+ALTER TABLE admin_challenges ADD COLUMN IF NOT EXISTS code_hash text;         -- emailed code (hashed)
+ALTER TABLE admin_challenges ADD COLUMN IF NOT EXISTS sends int NOT NULL DEFAULT 0;
+ALTER TABLE admin_challenges ADD COLUMN IF NOT EXISTS last_sent_at timestamptz;
+
 COMMIT;

@@ -15,7 +15,7 @@ export type Settings = {
   hours: DayHours[];
   days_off: { day: string; reason: string }[];
 };
-export type Me = { id: number; email: string; name: string; role: "owner" | "staff"; password_expired: boolean; password_days_left: number | null };
+export type Me = { id: number; email: string; name: string; role: "owner" | "staff"; mfa_method: "app" | "email"; password_expired: boolean; password_days_left: number | null };
 export type TeamUser = {
   id: number; email: string; name: string; role: "owner" | "staff"; active: boolean; totp_enabled: boolean;
   status: "active" | "invited" | "disabled"; locked: boolean; sessions: number; recovery_left: number;

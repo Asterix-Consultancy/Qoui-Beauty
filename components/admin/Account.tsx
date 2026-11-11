@@ -28,7 +28,7 @@ export default function Account({ me, onChanged, onAuthLost, forced = false }: {
 
   const regen = async (e: React.FormEvent) => {
     e.preventDefault();
-    const r = await call<{ recovery_codes: string[] }>("/api/admin/auth", "POST", { op: "recovery_regen", code });
+    const r = await call<{ recovery_codes: string[] }>("/api/admin/auth", "POST", me.mfa_method === "email" ? { op: "recovery_regen", password: code } : { op: "recovery_regen", code });
     setCode("");
     if (r.ok) setCodes(r.recovery_codes); else if (r.status === 401) onAuthLost(); else setMsg({ ok: false, text: r.message });
   };
@@ -49,7 +49,7 @@ export default function Account({ me, onChanged, onAuthLost, forced = false }: {
       <div className="adm-head"><h2>My account</h2></div>
       <div className="adm-panel">
         <h3>{me.name}</h3>
-        <p className="muted">{me.email} · {me.role === "owner" ? "Owner" : "Staff"}{me.password_days_left !== null && ` · password expires in ${me.password_days_left} days`}</p>
+        <p className="muted">{me.email} · {me.role === "owner" ? "Owner" : "Staff"} · codes by {me.mfa_method === "email" ? "email" : "authenticator app"}{me.password_days_left !== null && ` · password expires in ${me.password_days_left} days`}</p>
       </div>
       <div className="adm-panel">
         <h3>Change password</h3>
@@ -65,9 +65,14 @@ export default function Account({ me, onChanged, onAuthLost, forced = false }: {
           </>
         ) : (
           <form className="adm-row adm-row--end" onSubmit={regen}>
-            <label className="bk-field"><span>Current 6-digit code</span>
-              <input className="adm-code adm-code--sm" value={code} onChange={(e) => setCode(e.target.value.replace(/\D/g, ""))} inputMode="numeric" maxLength={6} /></label>
-            <button type="submit" className="bk-btn bk-btn--small" disabled={code.length !== 6}>New recovery codes</button>
+            {me.mfa_method === "email" ? (
+              <label className="bk-field"><span>Your password</span>
+                <input type="password" value={code} onChange={(e) => setCode(e.target.value)} autoComplete="current-password" maxLength={128} /></label>
+            ) : (
+              <label className="bk-field"><span>Current 6-digit code</span>
+                <input className="adm-code adm-code--sm" value={code} onChange={(e) => setCode(e.target.value.replace(/\D/g, ""))} inputMode="numeric" maxLength={6} /></label>
+            )}
+            <button type="submit" className="bk-btn bk-btn--small" disabled={me.mfa_method === "email" ? code.length < 12 : code.length !== 6}>New recovery codes</button>
           </form>
         )}
       </div>

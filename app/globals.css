@@ -942,3 +942,16 @@ html.js .gtile.is-in button, html:not(.js) .gtile button { clip-path: inset(0 0 
 .adm-tabs { overflow-x: auto; scrollbar-width: none; }
 .adm-tabs::-webkit-scrollbar { display: none; }
 .adm-tabs button { flex: 1 0 auto; white-space: nowrap; }
+
+.adm-choice { all: unset; box-sizing: border-box; display: grid; gap: 0.3rem; width: 100%; padding: 1.1rem 1.2rem; border-radius: var(--r-sm); border: 1.5px solid var(--line); cursor: pointer; text-align: left; transition: border-color 0.25s, background 0.25s, transform 0.35s var(--spring); }
+.adm-choice:hover:not(:disabled) { border-color: var(--rose); background: #fdf6f4; transform: translateY(-2px); }
+.adm-choice:focus-visible { outline: 2px solid var(--rose); outline-offset: 2px; }
+.adm-choice:disabled { opacity: 0.5; cursor: not-allowed; }
+.adm-choice strong { font: 500 1.3rem var(--serif); }
+.adm-choice span { font-size: 0.88rem; color: var(--muted); }
+
+/* Discreet key button on the sign-in card (no label on purpose) */
+.adm-login { position: relative; }
+.adm-keybtn { position: absolute; right: 14px; bottom: 14px; width: 36px; height: 36px; display: grid; place-items: center; border: 0; border-radius: 50%; background: transparent; color: rgba(43,30,26,0.22); cursor: pointer; transition: color 0.25s, background 0.25s; }
+.adm-keybtn:hover, .adm-keybtn:focus-visible { color: var(--cocoa); background: var(--ivory); }
+.adm-keybtn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }

@@ -1,0 +1,6 @@
+anthropic==2.8.0
+psycopg[binary,pool]==3.3.8
+psycopg-pool==3.3.3
+httpx==0.28.1
+tzdata==2026.6
+cryptography==50.0.2

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "api/**/*.py": {
+      "maxDuration": 60,
+      "includeFiles": "api/_lib/**"
+    }
+  },
+  "crons": [
+    { "path": "/api/cron/reminders", "schedule": "0 15 * * *" }
+  ]
+}

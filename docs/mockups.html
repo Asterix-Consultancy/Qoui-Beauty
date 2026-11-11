@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Qoui Design Mockups</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivory:#F7F3EE; --sand:#EDE4D9; --cocoa:#2B1E1A; --muted:#6E5E57;
+    --rose:#A85A4E; --rose-hover:#8C473D; --blush:#F3E3DF; --line:rgba(43,30,26,.12);
+    --serif:"Cormorant Garamond",Georgia,serif; --sans:Inter,system-ui,sans-serif;
+    --wa-bg:#EFE7DE; --wa-in:#FFFFFF; --wa-out:#DCF8C6; --wa-text:#111B21; --wa-meta:#667781; --wa-btn:#027EB5;
+  }
+  *{box-sizing:border-box} body{margin:0;background:var(--ivory);color:var(--cocoa);font:16px/1.6 var(--sans)}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 16px} @media(min-width:768px){.wrap{padding:0 40px}}
+  section{padding:64px 0;border-bottom:1px solid var(--line)} section.sand{background:var(--sand)}
+  h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.05;margin:0}
+  h1{font-size:clamp(44px,8vw,80px)} h2{font-size:clamp(30px,5vw,44px);margin-bottom:8px} h3{font-size:24px}
+  .cap{font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .lead{color:var(--muted);max-width:40rem;margin:8px 0 32px}
+  .grid{display:grid;gap:24px} @media(min-width:768px){.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g2{grid-template-columns:1fr 1fr}}
+  .sw{border:1px solid var(--line)} .sw div{height:96px} .sw p{margin:0;padding:10px 12px;font-size:13px}
+  .btn{display:inline-flex;align-items:center;min-height:48px;padding:0 28px;font:500 13px var(--sans);letter-spacing:.14em;text-transform:uppercase;border-radius:2px;border:1px solid transparent;text-decoration:none}
+  .p{background:var(--rose);color:#fff} .s{border-color:var(--cocoa);color:var(--cocoa)} .t{padding:0;min-height:auto;color:var(--rose);border-bottom:1px solid currentColor;border-radius:0}
+  .ph{aspect-ratio:4/5;background:radial-gradient(120% 90% at 30% 20%,#d9c3ae 0%,transparent 60%),radial-gradient(100% 80% at 80% 90%,#b88f78 0%,transparent 55%),#c9ab93;display:grid;place-items:center}
+  .ph.dark{background:radial-gradient(120% 90% at 40% 30%,#6b4a3d 0%,transparent 65%),#3b2a24}
+  .ph span{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(43,30,26,.6)} .ph.dark span{color:rgba(255,255,255,.6)}
+  .card{display:grid;gap:14px} .row{display:flex;justify-content:space-between;align-items:baseline} .price{color:var(--rose-hover);font-weight:500}
+  .ba{position:relative;aspect-ratio:4/5;overflow:hidden} .ba .ph{position:absolute;inset:0;aspect-ratio:auto}
+  .ba .after{clip-path:inset(0 0 0 55%)} .ba .hd{position:absolute;top:0;bottom:0;left:55%;width:1px;background:#fff}
+  .ba .hd:after{content:"";position:absolute;top:50%;left:50%;width:40px;height:40px;transform:translate(-50%,-50%);border:1px solid #fff;border-radius:50%}
+  .ba .cap{position:absolute;bottom:10px;color:#fff} .chip{display:inline-flex;align-items:center;min-height:40px;padding:0 16px;border:1px solid var(--line);border-radius:999px;font:500 12px var(--sans);letter-spacing:.14em;text-transform:uppercase;margin:0 6px 6px 0}
+  .chip.on{background:var(--blush);border-color:var(--rose)}
+  table{border-collapse:collapse;width:100%;font-size:14px} td,th{border-bottom:1px solid var(--line);padding:10px 8px;text-align:left;vertical-align:baseline}
+  /* Phone + WhatsApp */
+  .phones{display:grid;gap:32px} @media(min-width:900px){.phones{grid-template-columns:repeat(2,1fr)}} @media(min-width:1200px){.phones{grid-template-columns:repeat(3,1fr)}}
+  .phone{background:#111;border-radius:36px;padding:10px;max-width:360px;width:100%;margin:0 auto}
+  .scr{background:var(--wa-bg);border-radius:28px;overflow:hidden;font:14px/1.4 -apple-system,"Segoe UI",Roboto,sans-serif;color:var(--wa-text)}
+  .top{background:#075E54;color:#fff;padding:14px 16px;display:flex;gap:10px;align-items:center}
+  .av{width:34px;height:34px;border-radius:50%;background:var(--sand);color:var(--cocoa);display:grid;place-items:center;font:500 12px var(--sans);letter-spacing:.1em}
+  .top b{display:block;font-size:15px} .top small{opacity:.8;font-size:12px}
+  .chat{padding:12px;display:grid;gap:6px;min-height:420px;align-content:start}
+  .m{max-width:82%;padding:7px 9px 5px;border-radius:8px;box-shadow:0 1px .5px rgba(0,0,0,.13);white-space:pre-line}
+  .in{background:var(--wa-in);justify-self:start} .out{background:var(--wa-out);justify-self:end}
+  .m time{display:block;text-align:right;font-size:11px;color:var(--wa-meta);margin-top:2px}
+  .bt{justify-self:start;max-width:82%;width:82%;display:grid;gap:4px;margin-top:-2px}
+  .bt span{background:#fff;border-radius:8px;text-align:center;padding:9px;color:var(--wa-btn);font-weight:500;box-shadow:0 1px .5px rgba(0,0,0,.13)}
+  .photo{width:180px;height:220px;border-radius:6px;margin-bottom:4px}
+  .sys{justify-self:center;background:#FFF3C4;color:#54656F;font-size:12px;padding:5px 10px;border-radius:8px}
+  .tpl{border-left:3px solid var(--rose)}
+  .phone-cap{text-align:center;margin-top:12px}
+  .note{font-size:13px;color:var(--muted);text-align:center;max-width:340px;margin:6px auto 0}
+</style>
+</head>
+<body>
+<section><div class="wrap">
+  <span class="cap">Qoui Glam Studio · Design system v1</span>
+  <h1>Design &amp; flows</h1>
+  <p class="lead">Colour, type, components and the seven WhatsApp conversations the assistant handles. The live website screens are in the codebase: run it and view at 375 px and 1440 px.</p>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Colour</h2><p class="lead">Photos supply the colour. Rose clay is only for actions and prices.</p>
+  <div class="grid g4">
+    <div class="sw"><div style="background:#F7F3EE"></div><p><b>Ivory</b> #F7F3EE<br>Background</p></div>
+    <div class="sw"><div style="background:#EDE4D9"></div><p><b>Sand</b> #EDE4D9<br>Alternate sections</p></div>
+    <div class="sw"><div style="background:#2B1E1A"></div><p><b>Cocoa</b> #2B1E1A<br>Text · 14.6:1</p></div>
+    <div class="sw"><div style="background:#6E5E57"></div><p><b>Muted</b> #6E5E57<br>Secondary · 5.6:1</p></div>
+    <div class="sw"><div style="background:#A85A4E"></div><p><b>Rose clay</b> #A85A4E<br>Buttons, prices · 4.5:1</p></div>
+    <div class="sw"><div style="background:#8C473D"></div><p><b>Rose hover</b> #8C473D<br>Hover; rose text on Sand</p></div>
+    <div class="sw"><div style="background:#F3E3DF"></div><p><b>Blush</b> #F3E3DF<br>Selected, badges</p></div>
+  </div>
+</div></section>
+
+<section class="sand"><div class="wrap">
+  <h2>Type</h2>
+  <table>
+    <tr><td class="cap">Display</td><td style="font:500 64px/1 var(--serif)">Qoui Glam Studio</td></tr>
+    <tr><td class="cap">H2</td><td style="font:500 44px/1.05 var(--serif)">Three looks. One you.</td></tr>
+    <tr><td class="cap">H3</td><td style="font:500 28px/1.1 var(--serif)">Bridal</td></tr>
+    <tr><td class="cap">Body</td><td>Makeup that looks like you, on your best day. Inter 16/1.6, weights 400 and 500 only.</td></tr>
+    <tr><td class="cap">Caption</td><td class="cap">Bridal · Garden wedding · 2026</td></tr>
+  </table>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Components</h2>
+  <p class="lead">One primary button per section. Cards: photo, name and price, one line, one link.</p>
+  <p style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:40px">
+    <a class="btn p">Book on WhatsApp</a><a class="btn s">See the gallery</a><a class="btn t">Book this look</a>
+    <span class="chip on">All</span><span class="chip">Soft glam</span><span class="chip">Glam</span><span class="chip">Bridal</span>
+  </p>
+  <div class="grid g3">
+    <div class="card"><div class="ph"><span>Photo · Glam</span></div><div class="row"><h3>Glam</h3><span class="price">KES 4,500</span></div><p style="margin:0;color:var(--muted)">Full coverage, sculpted and lashed. Built to last the whole night.</p><div><a class="btn t">Book this look</a></div></div>
+    <figure style="margin:0"><div class="ph" style="aspect-ratio:3/2"><span>Photo · gallery spread</span></div><figcaption class="cap" style="margin-top:12px">Bridal · Garden wedding · 2026</figcaption></figure>
+    <figure style="margin:0"><div class="ba"><div class="ph"><span>Before</span></div><div class="ph dark after"><span>After</span></div><div class="hd"></div><span class="cap" style="left:10px">Before</span><span class="cap" style="right:10px">After</span></div><figcaption class="cap" style="margin-top:12px">Before/after · drag the handle</figcaption></figure>
+  </div>
+</div></section>
+
+<section class="sand"><div class="wrap">
+  <h2>WhatsApp flows</h2>
+  <p class="lead">Qoui Assistant: warm, short, never claims to be human. Buttons are WhatsApp reply buttons (max 3, 20 characters).</p>
+  <div class="phones">
+
+    <div><div class="phone"><div class="scr"><div class="top"><div class="av">QG</div><div><b>Qoui Glam Studio</b><small>business account</small></div></div><div class="chat">
+      <div class="m out">Hi, how much is bridal makeup?<time>09:12</time></div>
+      <div class="m in">Hi! Bridal is KES 6,000, around 2 hours, long-wear and photo-ready with lashes. A house call adds KES 1,500. Would you like to book a date?
+
+We only use your details for your bookings.<time>09:12</time></div>
+      <div class="m out">Na glam ni ngapi?<time>09:13</time></div>
+      <div class="m in">Glam ni KES 4,500, kama dakika 90. Full coverage, contour na lashes. Nikuwekee date?<time>09:13</time></div>
+    </div></div></div><p class="phone-cap cap">1 · Price question</p><p class="note">First reply carries the privacy line. Mirrors Swahili.</p></div>
+
+    <div><div class="phone"><div class="scr"><div class="top"><div class="av">QG</div><div><b>Qoui Glam Studio</b><small>business account</small></div></div><div class="chat">
+      <div class="m out">Hi Qoui, I'd like to book Glam.<time>14:02</time></div>
+      <div class="m in">Lovely! Will you come to the studio in Donholm, or should Betty come to you?<time>14:02</time></div>
+      <div class="bt"><span>Studio</span><span>House call</span></div>
+      <div class="m out">House call<time>14:03</time></div>
+      <div class="m in">Great, house calls are + KES 1,500. Which area, and what day?<time>14:03</time></div>
+      <div class="m out">Umoja 1, this Saturday<time>14:04</time></div>
+      <div class="m in">Here's what's free on Sat 13 Dec:<time>14:04</time></div>
+      <div class="bt"><span>Sat 13 Dec 08:00</span><span>Sat 13 Dec 11:00</span><span>Sat 13 Dec 14:30</span></div>
+      <div class="m out">Sat 13 Dec 11:00<time>14:05</time></div>
+      <div class="m in">Perfect. What name should I put the booking under?<time>14:05</time></div>
+      <div class="m out">Jane<time>14:05</time></div>
+      <div class="m in">Thanks Jane! Booking #12: Glam, house call in Umoja 1, Sat 13 Dec 11:00. Total KES 6,000. To hold your slot, send KES 1,000 to 07XX XXX XXX (BETTY X) and reply with the M-Pesa confirmation code.<time>14:05</time></div>
+    </div></div></div><p class="phone-cap cap">2 · Full booking</p><p class="note">Slots come only from the database, spread across the day.</p></div>
+
+    <div><div class="phone"><div class="scr"><div class="top"><div class="av">QG</div><div><b>Qoui Glam Studio</b><small>business account</small></div></div><div class="chat">
+      <div class="m out"><div class="ph photo"><span>Inspo photo</span></div>Can I get this look for my sister's wedding?<time>18:40</time></div>
+      <div class="m in">Gorgeous! That defined, sculpted eye with lashes is our Glam, KES 4,500. Betty will confirm when she sees it. Want me to check dates?<time>18:40</time></div>
+      <div class="bt"><span>Yes, check dates</span><span>Not yet</span></div>
+    </div></div></div><p class="phone-cap cap">3 · Inspiration photo</p><p class="note">Photo is read once and not stored.</p></div>
+
+    <div><div class="phone"><div class="scr"><div class="top"><div class="av">QG</div><div><b>Qoui Glam Studio</b><small>business account</small></div></div><div class="chat">
+      <div class="m out">TKB4XYZ12A Confirmed. Ksh1,000.00 sent to BETTY X...<time>14:20</time></div>
+      <div class="m in">Got it, thank you Jane! I've sent your code to Betty. She'll check the payment and confirm your booking here shortly.<time>14:20</time></div>
+    </div></div></div><p class="phone-cap cap">4 · Deposit code</p><p class="note">Code saved, booking marked DEPOSIT_CLAIMED, Betty alerted. A code can only be used once.</p></div>
+
+    <div><div class="phone"><div class="scr"><div class="top"><div class="av">QA</div><div><b>Qoui Assistant</b><small>Betty's phone</small></div></div><div class="chat">
+      <div class="m in">New booking #12: Jane, Glam, house call (Umoja 1), Sat 13 Dec 11:00, deposit code TKB4XYZ12A. Reply OK 12 or NO 12.<time>14:20</time></div>
+      <div class="m out">OK 12<time>14:31</time></div>
+      <div class="m in">#12 confirmed. Jane notified.<time>14:31</time></div>
+      <div class="m out">TOMORROW<time>19:00</time></div>
+      <div class="m in">Sat 13 Dec:
+#12 11:00 Jane, Glam, house call, Umoja 1 [confirmed]<time>19:00</time></div>
+    </div></div></div>
+    <div class="phone" style="margin-top:16px"><div class="scr"><div class="top"><div class="av">QG</div><div><b>Qoui Glam Studio</b><small>Jane's phone</small></div></div><div class="chat" style="min-height:auto">
+      <div class="m in">You're booked, Jane! Glam on Sat 13 Dec 11:00. House call at Umoja 1. Total KES 6,000, deposit KES 1,000 received. Betty will see you then.<time>14:31</time></div>
+    </div></div></div><p class="phone-cap cap">5 · Betty's OK</p><p class="note">Only Betty confirms. Commands: OK, NO, TODAY, TOMORROW, BLOCK, REPLY.</p></div>
+
+    <div><div class="phone"><div class="scr"><div class="top"><div class="av">QG</div><div><b>Qoui Glam Studio</b><small>business account</small></div></div><div class="chat">
+      <div class="m out">I reacted badly to foundation last time, my skin gets itchy. Is that ok?<time>10:05</time></div>
+      <div class="m in">Thank you for telling us, that's important. I've passed this to Betty so she can advise properly. She'll reply here shortly.<time>10:05</time></div>
+      <div class="sys">Betty (via REPLY H5)</div>
+      <div class="m in">Betty: Hi Mercy, no worries. I have fragrance-free options; I'll patch test before we start.<time>10:22</time></div>
+      <div class="m out">Are you a real person?<time>10:23</time></div>
+      <div class="m in">I'm Qoui's booking assistant. Betty can reply too.<time>10:23</time></div>
+    </div></div></div><p class="phone-cap cap">6 · Hand-off</p><p class="note">Betty gets: "Handoff H5: Mercy (+2547…). Allergy question…" and answers with REPLY H5.</p></div>
+
+    <div><div class="phone"><div class="scr"><div class="top"><div class="av">QG</div><div><b>Qoui Glam Studio</b><small>business account</small></div></div><div class="chat">
+      <div class="sys">Fri 12 Dec</div>
+      <div class="m in tpl">Hi Jane, this is a reminder of your Glam appointment with Qoui Glam Studio tomorrow at 11:00, at Umoja 1. Prep tip: Come with a clean, moisturised face. Bring your outfit colours or a photo so we can match the look. Reply here if you need to change anything.<time>18:00</time></div>
+    </div></div></div><p class="phone-cap cap">7 · Day-before reminder</p><p class="note">Meta-approved utility template, sent at 18:00 Nairobi by the daily cron.</p></div>
+
+  </div>
+</div></section>
+</body>
+</html>

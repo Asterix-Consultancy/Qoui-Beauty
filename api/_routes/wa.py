@@ -11,7 +11,7 @@ import re
 import sys
 from urllib.parse import quote
 
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # api/
 
 from _lib import db  # noqa: E402
 from _lib.http import JsonHandler, safe  # noqa: E402

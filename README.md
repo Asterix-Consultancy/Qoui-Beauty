@@ -20,12 +20,13 @@ Website (Next.js, static) ──"Book" buttons──▶ wa.me link with a prefil
 |---|---|
 | `app/`, `components/`, `lib/site.ts` | Website: Home, Book, Gallery, Contact, Privacy. All content lives in `lib/site.ts`. |
 | `components/booking/` | The booking flow: steps, interactive calendar, time picker, deposit screen |
-| `api/services.py`, `availability.py`, `slots.py`, `bookings.py`, `deposit.py` | Website booking API |
+| `api/_routes/services.py`, `availability.py`, `slots.py`, `bookings.py`, `deposit.py` | Website booking API |
 | `api/_lib/booking.py` | The one place that decides free times; used by both the website and WhatsApp |
 | `scripts/dev_api.py` | Local development only: runs the Python API on :3001 behind `next dev` |
-| `api/whatsapp.py` | WhatsApp webhook (verification + incoming messages) |
-| `api/cron/reminders.py` | Daily reminders + releases unpaid holds |
-| `api/health.py` | Status check |
+| `api/_routes/whatsapp.py` | WhatsApp webhook (verification + incoming messages) |
+| `api/_routes/cron/reminders.py` | Daily reminders + releases unpaid holds |
+| `api/_routes/health.py` | Status check |
+| `api/index.py` | The single Vercel function: routes `/api/<path>` to `api/_routes/<path>.py` (Hobby plan allows 12 functions) |
 | `api/_lib/` | Shared code: `db.py`, `whatsapp.py`, `claude_agent.py`, `tools.py`, `betty_commands.py`, `notify.py`, `config.py` |
 | `db/schema.sql`, `db/seed.sql` | Database tables and starting data |
 | `docs/DESIGN.md`, `docs/mockups.html` | Design system and WhatsApp conversation mockups |

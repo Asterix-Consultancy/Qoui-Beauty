@@ -10,7 +10,7 @@ import sys
 from datetime import datetime, timedelta
 from urllib.parse import quote
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))  # api/
 
 from _lib import db, notify  # noqa: E402
 from _lib.admin_auth import AdminHandler, audit  # noqa: E402

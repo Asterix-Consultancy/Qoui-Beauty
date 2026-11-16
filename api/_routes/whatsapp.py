@@ -17,7 +17,7 @@ import time
 from http.server import BaseHTTPRequestHandler
 from urllib.parse import parse_qs, urlparse
 
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # api/
 
 from _lib import betty_commands, claude_agent, db, notify, tools  # noqa: E402
 from _lib.config import betty_phone, digits, log, mask_phone  # noqa: E402

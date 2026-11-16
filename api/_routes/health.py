@@ -7,7 +7,7 @@ import os
 import sys
 from http.server import BaseHTTPRequestHandler
 
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # api/
 
 REQUIRED = ["DATABASE_URL", "APP_ENCRYPTION_KEY", "CRON_SECRET"]
 REQUIRED_WHATSAPP = ["WHATSAPP_TOKEN", "WHATSAPP_PHONE_NUMBER_ID", "WHATSAPP_VERIFY_TOKEN", "WHATSAPP_APP_SECRET",

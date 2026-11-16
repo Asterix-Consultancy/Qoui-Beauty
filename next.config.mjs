@@ -9,7 +9,7 @@ const nextConfig = {
     qualities: [75, 76, 78, 80, 85],
   },
   // Local development only: the Python functions run via scripts/dev_api.py on :3001.
-  // On Vercel, /api/*.py are deployed as functions and this rewrite is not used.
+  // On Vercel, vercel.json sends /api/* to the single api/index.py function and this rewrite is not used.
   async rewrites() {
     if (process.env.NODE_ENV !== "development") return [];
     return [{ source: "/api/:path*", destination: "http://127.0.0.1:3001/api/:path*" }];

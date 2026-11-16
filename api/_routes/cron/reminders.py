@@ -16,7 +16,7 @@ import sys
 from datetime import datetime, timedelta
 from http.server import BaseHTTPRequestHandler
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))  # api/
 
 from _lib import db, notify  # noqa: E402
 from _lib import whatsapp as wa  # noqa: E402

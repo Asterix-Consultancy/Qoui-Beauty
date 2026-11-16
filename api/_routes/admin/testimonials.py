@@ -8,7 +8,7 @@ from __future__ import annotations
 import os
 import sys
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))  # api/
 
 from _lib import db  # noqa: E402
 from _lib.admin_auth import AdminHandler, audit  # noqa: E402
